@@ -1,0 +1,22 @@
+<%= form_for(@document) do |f| %>
+  <% if @document.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@document.errors.count, "error") %> error al intentar guardar el documento:</h2>
+
+      <ul>
+      <% @document.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+
+    <%= f.file_field :file, class:"btn btn-xs" %>
+
+  </div>
+  <div class="actions">
+    <%=  f.submit 'subir documento', class:"btn btn-xs btn-success"%>
+  </div>
+<% end %>

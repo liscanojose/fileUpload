@@ -1,0 +1,30 @@
+<center>
+<h1>Probando FileUpload en rails con paperclips</h1>
+
+<h2>Lista de proyectos</h2>
+
+<table>
+
+  <thead>
+    <tr>
+    <th>Nombre del documento</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @documents.each do |document| %>
+      <tr>
+        <td><%= document.filename %></td>
+        <td><%= button_to 'Descargar', document, method: :get , class:"btn btn-xs btn-primary" %></td>
+        <td><%= button_to 'Eliminar', document, method: :delete, data: { confirm: 'Estas seguro?' }, class:"btn btn-xs btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo documento', new_document_path %>
+</center>
